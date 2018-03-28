@@ -1,0 +1,37 @@
+
+.site--container{
+  &--hero{
+    position: relative;
+    @include background-cover('assets/truck.png');
+    height: 500px;
+    @media(max-width: 500px){
+     height: 350px;
+    }
+    &--call-to-action{
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      padding: 20px 15px;
+      @include transform(.4s);
+      @include third-color-bg(.8);
+      h4{
+        font-size: 12px;
+      }
+
+      h1{
+        font-size: 30px;
+        color: $first-color;
+        text-transform: uppercase;
+      }
+
+      @media(max-width: 999px){
+        width: 100%;
+        left: 0;
+        bottom: 0;
+      }
+
+    }
+
+
+  }
+}

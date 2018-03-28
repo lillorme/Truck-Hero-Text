@@ -1,0 +1,128 @@
+.header{
+  @include clear();
+  &--top{
+    @include clear();
+    padding: 20px 0 10px 0;
+    &__menu{
+      float: left;
+      font-size: 36px;
+      display: none;
+      @media(max-width: 999px){
+        display: block;
+      }
+      @media(max-width: 500px){
+        font-size: 20px;
+      }
+    }
+    &__logo{
+      float: left;
+      font-size: 0;
+      max-width: 264.22px;
+      width: 100%;
+      @media(max-width: 999px){
+        float: none;
+        margin: auto;
+        text-align: center;
+      }
+      @media(max-width: 500px){
+        max-width: 160px;
+      }
+      img{
+        width: auto;
+        height: 40px;
+        @media(max-width: 500px){
+          height: 24px;
+        }
+      }
+    }
+
+    &__right{
+      float: right;
+      @media(max-width: 999px){
+        display: none;
+      }
+    }
+    &__search{
+      display: inline-block;
+      margin-right: 20px;
+      .search{
+        input{
+          border: transparent;
+          //background: none;
+          height: 38px;
+          line-height: 38px;
+        }
+        &__box{
+
+        }
+        &__button{
+          font-family: "Font Awesome 5 Pro";
+          background: none;
+
+        }
+      }
+    }
+
+    &__info{
+      display: inline-block;
+
+      li{
+        display: inline-block;
+        vertical-align: top;
+
+      }
+      &__phone{
+        line-height: 35px;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      &__contact{
+        &__number{
+          font-size: 18px;
+        }
+        &__hours{
+          font-size: 10px;
+        }
+      }
+      &__cart{
+        margin-left: 20px;
+        line-height: 35px;
+        font-size: 20px;
+      }
+    }
+  }
+  &--bottom{
+    @include clear();
+    padding: 10px 0;
+    background-color: $second-color;
+
+    @media(max-width: 999px){
+      display: none;
+    }
+    &__menu{
+      text-align: center;
+      li{
+        width: (100% / 9.3);
+        display: inline-block;
+        vertical-align: top;
+
+        a{
+          color: $first-color;
+          line-height: 36px;
+          span{
+            float: left;
+            width: 100%;
+            line-height: normal;
+          }
+        }
+
+        &:first-child, &:nth-child(2){
+          text-align: left;
+          a{
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+}

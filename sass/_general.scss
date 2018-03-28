@@ -1,0 +1,76 @@
+/* global box-sizing */
+*,
+*:after,
+*:before {
+  padding: 0;
+  margin: 0;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+  //font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-after: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+}
+// html element 62.5% font-size for REM use
+
+html {
+  height: 100%;
+  font-size: 0;
+}
+
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #545759;
+}
+p{
+  line-height: 36px;
+}
+a{
+  text-decoration: none !important;
+
+  &:hover{
+
+  }
+}
+
+input, button, textarea{
+  -moz-box-sizing: content-box; /* or `border-box` */
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  display: inline-block;
+  border: 1px solid transparent;
+  -webkit-appearance: none;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  vertical-align: top;
+  padding: 0 10px;
+  color: #545759;
+  outline: none;
+}
+/* clear */
+.clear:before,
+.clear:after {
+  content:' ';
+  display:table;
+}
+
+.clear:after {
+  clear:both;
+}
+.clear {
+  *zoom:1;
+}
+
+ul{
+  list-style-type: none;
+}

@@ -1,0 +1,187 @@
+// Background functions
+@mixin txt-shadow(){
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+
+@mixin background-alpha($color,$alpha){
+  background:$color;
+  background:rgba($color,$alpha);
+}
+
+@mixin background-cover($url){
+  @if $url != null {
+    background-image:url($url);
+  }
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+
+}
+
+@mixin background-svg-fallback($url) {
+  // $url should have no file extension, eg: ic-tw NOT ic-tw.png
+  background:url($url + '.png');
+  background:url($url + '.svg'),transparent;
+}
+
+@mixin clear {
+  *zoom:1;
+
+  &:before,&:after {
+    content:' ';
+    display:table;
+  }
+
+  &:after {
+    clear:both;
+  }
+}
+
+@mixin font-face($fontName,$fontUrl) {
+  @font-face {
+    font-family:$fontName;
+    src:url('#{$fontUrl}.eot');
+    src:url('#{$fontUrl}.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontUrl}.woff') format('woff'),
+    url('#{$fontUrl}.ttf') format('truetype'),
+    url('#{$fontUrl}.svg##{$fontName}') format('svg');
+    font-weight:normal;
+    font-style:normal;
+  }
+}
+
+@mixin ul-reset {
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+
+@mixin menu-reset {
+  & ul {
+    @include ul-reset;
+  }
+}
+
+@mixin inline-menu {
+  @include clear;
+  @include ul-reset;
+  & li {
+    /*display:block \9;
+    float:left \9;*/
+    display: inline-block;
+  }
+}
+
+@mixin element-cover {
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  position: absolute;
+  height: 100%;
+  width:100%;
+}
+
+@mixin box-shadow($args){
+  box-shadow: $args;
+  -o-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -webkit-box-shadow: $args;
+}
+
+@mixin border-radius($args){
+  border-radius:$args;
+  -o-border-radius:$args;
+  -moz-border-radius:$args;
+  -webkit-border-radius:$args;
+}
+
+@mixin transform($args){
+  transform:$args;
+  -o-transform:$args;
+  -ms-transform:$args;
+  -moz-transform:$args;
+  -webkit-transform:$args;
+}
+
+@mixin transform-origin($args){
+  -webkit-transform-origin: $args;
+  -moz-transform-origin: $args;
+  -ms-transform-origin: $args;
+  -o-transform-origin: $args;
+  transform-origin: $args;
+}
+
+@mixin twelveight-transition($args){
+  transition:$args;
+  -o-transition:$args;
+  -moz-transition:$args;
+  -webkit-transition:$args;
+}
+
+@mixin center-in-parent($vertical, $horizontal){
+  position:absolute;
+  $transforms:"";
+  @if($vertical){
+    top:50%;
+    $transforms: $transforms + translateY(-50%);
+  }
+  @if($horizontal){
+    left:50%;
+    $transforms: $transforms + translateX(-50%);
+  }
+  @include transform(unquote($transforms));
+}
+
+@mixin fixed-parent($vertical, $horizontal){
+  position:fixed;
+  $transforms:"";
+  @if($vertical){
+    top:50%;
+    $transforms: $transforms + translateY(-50%);
+  }
+  @if($horizontal){
+    left:50%;
+    $transforms: $transforms + translateX(-50%);
+  }
+  @include transform(unquote($transforms));
+}
+
+@mixin line-clamp($numOfLines){
+  // SHOULD HAVE PADDING OF 0 IN ORDER TO WORK PROPERLY.
+  padding:0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $numOfLines;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+@mixin box-sizing($args){
+  -webkit-box-sizing: $args;
+  -moz-box-sizing: $args;
+  box-sizing: $args;
+}
+
+$breakpoints: (
+        "phone":        400px,
+        "phone-wide":   480px,
+        "phablet":      560px,
+        "tablet-small": 640px,
+        "tablet":       768px,
+        "tablet-wide":  1024px,
+        "desktop":      1248px,
+        "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+/* General Positive / Negative */
+
+
+//$primary-color: #55c9e1;
+//$secondary-color: #e37da8;
+
+$first-color: white;
+$second-color: black;
+$third-color: rgb(237,184,30);
+
+$fourth-color: #f7a145;
+$fifth-color: #262e44;
+
+.first-color-bg{
+  background-color: $first-color;
+}
+.second-color-bg{
+  background-color: $second-color;
+}
+
+.third-color-bg{
+  background-color: $third-color;
+}
+@mixin third-color-bg($avg){
+  background-color: rgba(237,184,30, $avg);
+}
+
+.fourth-color-bg{
+  background-color: $fourth-color;
+}
+.fifth-color-bg{
+  background-color: $fifth-color;
+}
+
+.first-color{
+  color: $first-color;
+}
+.second-color{
+  color: $second-color;
+}
+.third-color{
+  color: $third-color;
+}
+.fourth-color{
+  color: $fourth-color;
+}
+.fifth-color{
+  color: $fifth-color;
+}

@@ -1,0 +1,29 @@
+.site--wrapper{
+  padding: 0 15px;
+  @include clear();
+  margin: auto;
+  &--desktop-wide{
+    max-width: 1440px
+  }
+  &--desktop{
+    max-width: 1236px;
+  }
+  &--tablet-wide{
+    max-width: 1024px
+  }
+  &--tablet{
+    max-width: 768px
+  }
+  &--tablet-small{
+    max-width: 640px
+  }
+  &--phablet{
+    max-width: 560px
+  }
+  &--phone-wide{
+    max-width: 480px
+  }
+  &--phone{
+    max-width: 400px
+  }
+}
