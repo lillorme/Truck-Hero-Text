@@ -254,6 +254,7 @@ ul {
 
 .site--container--hero {
   position: relative;
+  overflow: hidden;
   background-image: url("assets/truck.png");
   background-repeat: no-repeat;
   background-position: center center;

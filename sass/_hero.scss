@@ -2,6 +2,7 @@
 .site--container{
   &--hero{
     position: relative;
+    overflow: hidden;
     @include background-cover('assets/truck.png');
     height: 500px;
     @media(max-width: 500px){
