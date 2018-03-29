@@ -7,10 +7,23 @@
     @media(max-width: 500px){
      height: 350px;
     }
-    &--call-to-action{
+    .call-to-action-container{
       position: absolute;
       bottom: 15px;
       left: 15px;
+      width: 100%;
+
+      @media(max-width: 999px){
+        left: 0;
+        bottom: 0;
+      }
+    }
+    .site--wrapper{
+      padding: 0;
+
+    }
+    &--call-to-action{
+      float: left;
       padding: 20px 15px;
       @include transform(.4s);
       @include third-color-bg(.8);
@@ -26,8 +39,6 @@
 
       @media(max-width: 999px){
         width: 100%;
-        left: 0;
-        bottom: 0;
       }
 
     }

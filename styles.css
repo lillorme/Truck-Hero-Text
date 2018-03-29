@@ -121,6 +121,31 @@ ul {
   .site--wrapper--phone {
     max-width: 400px; }
 
+.site--container--pagination {
+  text-align: center;
+  margin-bottom: 30px; }
+  .site--container--pagination ul {
+    display: flex;
+    justify-content: center; }
+    .site--container--pagination ul li {
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      border-left: 1px solid #e6e6e6;
+      border-right: none;
+      padding: 8px 16px; }
+      .site--container--pagination ul li:last-child {
+        border-right: 1px solid #e6e6e6; }
+      .site--container--pagination ul li a {
+        font-size: 14px; }
+      .site--container--pagination ul li.center, .site--container--pagination ul li.end {
+        display: none; }
+        @media (max-width: 530px) {
+          .site--container--pagination ul li.center, .site--container--pagination ul li.end {
+            display: block; } }
+      @media (max-width: 530px) {
+        .site--container--pagination ul li.items {
+          display: none; } }
+
 .header {
   *zoom: 1; }
   .header:before, .header:after {
@@ -237,10 +262,19 @@ ul {
   @media (max-width: 500px) {
     .site--container--hero {
       height: 350px; } }
-  .site--container--hero--call-to-action {
+  .site--container--hero .call-to-action-container {
     position: absolute;
     bottom: 15px;
     left: 15px;
+    width: 100%; }
+    @media (max-width: 999px) {
+      .site--container--hero .call-to-action-container {
+        left: 0;
+        bottom: 0; } }
+  .site--container--hero .site--wrapper {
+    padding: 0; }
+  .site--container--hero--call-to-action {
+    float: left;
     padding: 20px 15px;
     transform: 0.4s;
     -o-transform: 0.4s;
@@ -256,9 +290,7 @@ ul {
       text-transform: uppercase; }
     @media (max-width: 999px) {
       .site--container--hero--call-to-action {
-        width: 100%;
-        left: 0;
-        bottom: 0; } }
+        width: 100%; } }
 
 .site--container {
   padding: 15px; }
@@ -280,7 +312,10 @@ ul {
 .site--container--products .products--container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  grid-template-columns: auto auto auto auto; }
+  @media (max-width: 1200px) {
+    .site--container--products .products--container {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); } }
   .site--container--products .products--container .products {
     padding: 15px 0;
     position: relative; }

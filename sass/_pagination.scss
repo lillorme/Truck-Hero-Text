@@ -1,0 +1,37 @@
+.site--container{
+  &--pagination{
+    text-align: center;
+    margin-bottom: 30px;
+    ul{
+      display: flex;
+      justify-content: center;
+
+      li{
+        border-top: 1px solid darken($first-color, 10);
+        border-bottom: 1px solid darken($first-color, 10);
+        border-left: 1px solid darken($first-color, 10);
+        border-right: none;
+        padding: 8px 16px;
+        &:last-child{
+          border-right: 1px solid darken($first-color, 10);
+        }
+        a{
+          font-size: 14px;
+        }
+        &.center, &.end{
+          display: none;
+          @media (max-width: 530px) {
+            display: block;
+          }
+        }
+        &.items{
+
+          @media (max-width: 530px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+}
